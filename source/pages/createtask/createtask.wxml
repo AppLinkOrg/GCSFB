@@ -1,0 +1,62 @@
+<!--pages/createtask/createtask.wxml-->
+<form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+  <view class='padding-20' style='border-bottom:6rpx solid #e5e5e5'>
+
+    <view class='txt-black h4 '>基本信息</view>
+
+    <view class='flex-row flex-center mid'>
+      <view class=''>
+        <image class='icon-25' src='{{uploadpath}}resource/{{res.morenlianxiren}}'></image>
+      </view>
+      <view class='flex-1 margin-left-20'>
+        <input class='padding-10 txt-black' placeholder='默认关联该账号的有效联系人' name='person' style='border-bottom:1rpx solid #e5e5e5'></input>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center mid'>
+      <view class=''>
+        <image class='icon-25' src='{{uploadpath}}resource/{{res.xuanzeriqi}}'></image>
+      </view>
+      <view class='flex-1 margin-left-20'>
+        <picker mode='date' bindchange="binddate" start='{{today}}'>
+          <input name='date' class='padding-10 txt-black' disabled='true' placeholder='请选择日期' value='{{date}}' style='border-bottom:1rpx solid #e5e5e5'></input>
+          </picker>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center mid'>
+      <view class=''>
+        <image class='icon-25' src='{{uploadpath}}resource/{{res.gongchengmingcheng}}'></image>
+      </view>
+      <view class='flex-1 margin-left-20'>
+        <input class='padding-10 txt-black' placeholder='请输入工程名称' name='name' style='border-bottom:1rpx solid #e5e5e5'></input>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center mid'>
+      <view class=''>
+        <image class='icon-25' src='{{uploadpath}}resource/{{res.gongchengdizhi}}'></image>
+      </view>
+      <view class='flex-1 margin-left-20'>
+        <input class='padding-10 txt-black' placeholder='请输入工程地址' name='address' style='border-bottom:1rpx solid #e5e5e5'></input>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='padding-20' style='border-bottom:6rpx solid #e5e5e5'>
+    <view class='txt-black h4 '>工程描述</view>
+    <view class=' margin-20'>
+      <textarea class='padding-20 radius-10 txt-black' fixed="{{true}}" maxlength='-1' name='description' auto-height='{{true}}' style='border:1rpx solid #e5e5e5;width:93%;min-height:200rpx;' placeholder='请填写工程描述'></textarea>
+    </view>
+  </view>
+
+  <view class='padding-20 flex-row flex-center'>
+    <view class='txt-black h4 flex-1'>上传照片</view>
+    <image bindtap='toimgupload' class='icon-25' src='{{uploadpath}}resource/{{res.shangchuanzhaopian}}'></image>
+
+  </view>
+
+  <button class='bg-dominant txt-white text-center margin-20 btn' form-type='submit' style=''>提交</button>
+
+</form>

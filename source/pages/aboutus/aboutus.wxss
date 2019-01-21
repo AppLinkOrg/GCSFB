@@ -1,0 +1,18 @@
+/* pages/aboutus/aboutus.wxss */
+Page{
+  background: #E5E5E5;
+}
+.border_top{
+  border-top: 1rpx solid #CECFCE;
+}
+.border_top-1{
+  border-top: 6rpx solid #CECFCE;
+}
+.img{
+  width: 100%;
+  height: 400rpx;
+}
+.tiaowen{
+width: 50rpx;
+height: 10rpx;
+}

@@ -1,0 +1,18 @@
+<!--pages/aboutus/aboutus.wxml-->
+
+<view class='flex-row flex-column margin-bottom-20'>
+  <image class='img' src='{{uploadpath}}resource/{{res.logo}}'></image>
+</view>
+
+<view wx:for='{{list}}' wx:key='k' wx:for-index='idx' class=''>
+  <view class='flex-row flex-column  padding-40 margin-20 bg-white radius-10'>
+
+    <view class='flex-row flex-center'>
+      <image class='tiaowen ' src='{{uploadpath}}resource/{{res.tiaowen}}'></image>
+      <view class='flex-1 txt-primary margin-left-20 margin-right-20'>{{item.title_name}}</view>
+      <image class='tiaowen' src='{{uploadpath}}resource/{{res.tiaowen}}'></image>
+    </view>
+
+    <text decode="{{true}}" space="nbsp" class='margin-top'>{{item.content}}</text>
+  </view>
+</view>

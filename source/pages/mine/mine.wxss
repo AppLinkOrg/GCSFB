@@ -1,0 +1,31 @@
+/* pages/mine/mine.wxss */
+Page {
+  background: #dadada;
+}
+.border_bottom {
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.set_icon {
+  position: relative;
+  top: 40rpx;
+  margin-right: 40rpx;
+  z-index: 10;
+}
+.bg{
+  position: absolute;
+  z-index: -1;
+  height: 25%;
+  width: 100%;
+}
+.mid{
+  /* position: absolute;
+  height: 250rpx;
+  
+  top: 200rpx;
+  left: 20rpx;
+  right:20rpx; */
+  /* width: 90%; */
+  border-radius:10rpx;
+  background-color: #ABDFC6;
+}

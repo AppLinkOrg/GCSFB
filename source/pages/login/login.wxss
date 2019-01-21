@@ -1,0 +1,21 @@
+/* pages/login/login.wxss */
+.LOGO{
+  height: 300rpx;
+  width: 220rpx;
+}
+.font{
+  font-size: 90rpx;
+  color: #7A5D20;
+}
+.btn{
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border: 1rpx solid #FAA71D;
+  color: #FAA71D;
+}
+.login_btn{
+  height: 80rpx;
+  width: 80%;
+  line-height: 80rpx;
+}

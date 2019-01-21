@@ -1,0 +1,31 @@
+<!--pages/mine/mine.wxml-->
+<view class='bg-dominant padding-bottom-40'>
+  <view class=' flex-row flex-column  margin-top ' style='height:170rpx;width:100%'>
+    <image class='icon-60 radius-50  ' style='border:4rpx solid #CECFCE' src='{{UserInfo.avatarUrl}}'></image>
+    <view class='txt-white margin-left-5'>{{UserInfo.nickName}}</view>
+  </view>
+</view>
+
+
+<view class='bg-white'>
+<navigator url='/pages/myreading/myreading' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20' style=''>
+  <image class='icon-25' src='{{uploadpath}}resource/{{res.wodexiangmu}}'></image>
+  <view class='margin-left-20 txt-bold txt-black h5'>我的项目</view>
+</navigator>
+
+
+<navigator url='/pages/aboutus/aboutus' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
+  <image class='icon-25' src='{{uploadpath}}resource/{{res.guanyuwomen}}'></image>
+  <view class='margin-left-20 txt-bold txt-black h5'>关于我们</view>
+</navigator>
+
+
+<view class=' margin-30 bg-white '>
+<button  class='bg-white clear-button' open-type='contact' style='border-radius:0;border:0;'>
+<view class='flex-row flex-center '>
+<image class='icon-25' src='{{uploadpath}}resource/{{res.lianxikefu}}'></image>
+<view class='txt-bold txt-black h5  padding-left-20'>联系客服</view>
+</view>
+</button>
+</view>
+</view>

@@ -1,0 +1,5 @@
+/* pages/calculation/calculation.wxss */
+.btn {
+  height: 70rpx;
+  line-height: 70rpx;
+}

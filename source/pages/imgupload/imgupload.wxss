@@ -1,0 +1,12 @@
+/* pages/imgupload/imgupload.wxss */
+.mid {
+  
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  margin-right: 10rpx;
+}
+
+.btn {
+  height: 80rpx;
+  line-height: 80rpx;
+}

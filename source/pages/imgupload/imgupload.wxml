@@ -1,0 +1,141 @@
+<!--pages/imgupload/imgupload.wxml-->
+<form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+  <view class='padding-20' style='border-bottom:6rpx solid #e5e5e5'>
+    <view class='txt-black h4 '>图片编号</view>
+    <view class='flex-row flex-center mid'>
+      <view class=''>
+        <image class='icon-25' src='{{uploadpath}}resource/{{res.tupian}}'></image>
+      </view>
+      <view class='flex-1 margin-left-20 radius-10 flex-row flex-center' style='border:1rpx solid #e5e5e5'>
+        <input class='padding-left-10 txt-black flex-1' disabled='false' placeholder='请选择图片单项分类' name='person' style=''></input>
+        <image src='{{uploadpath}}resource/{{res.bottom}}' class='icon-15 margin-right-10'></image>
+      </view>
+    </view>
+    <view class='flex-row flex-center mid'>
+      <view class=''>
+        <image class='icon-25' src='{{uploadpath}}resource/{{res.xuanzeriqi}}'></image>
+      </view>
+      <view class='flex-1 margin-left-20'>
+        <input name='date' class='padding-10 txt-black' placeholder='请填写需要收方的名称' style='border-bottom:1rpx solid #e5e5e5'></input>
+      </view>
+    </view>
+  </view>
+
+  <view class='padding-20 flex-row column' style='border-bottom:6rpx solid #e5e5e5'>
+    <view class='txt-black h4 flex-1'>上传照片</view>
+    <image class='icon-100 margin-top-20' src='{{uploadpath}}resource/{{res.shangchuanzhaopiangray}}'></image>
+  </view>
+
+
+  <view class='padding-20' style='border-bottom:6rpx solid #e5e5e5'>
+    <view class='txt-black h4 '>照片数据</view>
+
+    <!-- <view class='flex-row flex-center mid'>
+      <view class='txt-black'>
+        单位：
+      </view>
+      <picker mode='date' bindchange="binddate">
+        <view class='flex-1 margin-left-20 radius-10 flex-row flex-center' style='border:1rpx solid #e5e5e5'>
+          <input class='padding-left-10 txt-black flex-1' disabled='false' placeholder='请选择分类' name='person' style=''></input>
+          <image src='{{uploadpath}}resource/{{res.bottom}}' class='icon-15 margin-right-10'></image>
+        </view>
+      </picker>
+    </view>
+    <view class='flex-row flex-center mid'>
+      <view class='txt-black'>
+        形状：
+      </view>
+      <picker mode='date' bindchange="binddate">
+        <view class='flex-1 margin-left-20 radius-10 flex-row flex-center' style='border:1rpx solid #e5e5e5'>
+          <input class='padding-left-10 txt-black flex-1' disabled='false' placeholder='请选择分类' name='person' style=''></input>
+          <image src='{{uploadpath}}resource/{{res.bottom}}' class='icon-15 margin-right-10'></image>
+        </view>
+      </picker>
+    </view>
+    <view class='flex-row flex-center'>
+
+      <view class='flex-row column'>
+        <view class='txt-black'>长（米）</view>
+        <input style='border:1rpx solid #e5e5e5' placeholder='请输入数据' class='radius-10 h5 text-center margin-top-20'></input>
+      </view>
+
+      <view style='width:40rpx;'></view>
+
+      <view class='flex-row column'>
+        <view class='txt-black'>宽（米）</view>
+        <input style='border:1rpx solid #e5e5e5' placeholder='请输入数据' class='radius-10 h5 text-center margin-top-20'></input>
+      </view>
+
+      <view style='width:40rpx;'></view>
+
+      <view class='flex-row column'>
+        <view class='txt-black'>高（米）</view>
+        <input style='border:1rpx solid #e5e5e5' placeholder='请输入数据' class='radius-10 h5 text-center margin-top-20'></input>
+      </view>
+
+    </view> -->
+
+    <view class='flex-row flex-center margin-top-20'>
+      <view>1、</view>
+      <view class='txt-black flex-1' style='border-bottom:1rpx solid gray'>
+        <input class='h5' style='width:300rpx;'></input>
+      </view>
+      <view style='width:100rpx;'></view>
+      <view class='txt-black ' style='border-bottom:1rpx solid gray'>
+        <input class='h5' style='width:200rpx;'></input>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center margin-top-20'>
+      <view>2、</view>
+      <view class='txt-black flex-1' style='border-bottom:1rpx solid gray'>
+        <input class='h5' style='width:300rpx;'></input>
+      </view>
+      <view style='width:100rpx;'></view>
+      <view class='txt-black ' style='border-bottom:1rpx solid gray'>
+        <input class='h5' style='width:200rpx;'></input>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center margin-top-20'>
+      <view>3、</view>
+      <view class='txt-black flex-1' style='border-bottom:1rpx solid gray'>
+        <input class='h5' style='width:300rpx;'></input>
+      </view>
+      <view style='width:100rpx;'></view>
+      <view class='txt-black ' style='border-bottom:1rpx solid gray'>
+        <input class='h5' style='width:200rpx;'></input>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center margin-top-20'>
+      <view>4、</view>
+      <view class='txt-black flex-1' style='border-bottom:1rpx solid gray'>
+        <input class='h5' style='width:300rpx;'></input>
+      </view>
+      <view style='width:100rpx;'></view>
+      <view class='txt-black ' style='border-bottom:1rpx solid gray'>
+        <input class='h5' style='width:200rpx;'></input>
+      </view>
+    </view>
+
+
+
+    <view class='flex-row flex-center margin-top'>
+      <view class='txt-black'>结果</view>
+      <input style='border:1rpx solid #e5e5e5' placeholder='自动生成结果' class='radius-10 h5 margin-left-20 padding-left-20'></input>
+    </view>
+
+  </view>
+
+
+  <view class='padding-20' style='border-bottom:6rpx solid #e5e5e5'>
+    <view class='txt-black h4 '>备注</view>
+    <view class='margin-top-20'>
+      <textarea class='padding-20 radius-10 txt-black' fixed="{{true}}" maxlength='-1' name='description' auto-height='{{true}}' style='border:1rpx solid #e5e5e5;width:93%;min-height:200rpx;' placeholder='请填写图片备注'></textarea>
+    </view>
+  </view>
+
+  <button class='bg-dominant txt-white text-center margin-20 btn' form-type='submit' style=''>上传</button>
+
+</form>
