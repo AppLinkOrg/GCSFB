@@ -1,0 +1,52 @@
+<!--pages/workdetails/workdetails.wxml-->
+<view class='margin-20 bg-gray padding-20 txt-black radius-10'>工程名称:XXX</view>
+
+<view class='flex-row column margin-20 radius-10 padding-20 bg-gray'>
+  <view class='   txt-black'>基本信息:</view>
+
+  <view class='flex-row margin-top-20'>
+    <view class='    txt-gray h5   '>上报日期: </view>
+    <view class='h5   txt-black flex-1 margin-left-10'>2018年11月20日</view>
+  </view>
+
+  <view class='flex-row margin-top-20'>
+    <view class='    txt-gray h5   '>工程地址: </view>
+    <view class='h5   txt-black flex-1 margin-left-10'>asdasdasdsdassssssssssssssssssssssssssssssssss</view>
+  </view>
+
+  <view class='flex-row column margin-top-20'>
+    <view class='    txt-gray h5   '>工程描述: </view>
+    <view class='  h5 txt-black flex-1 margin-left-10'>asdasdasdsdassssssssssssssssssssssssssssssssss</view>
+  </view>
+
+</view>
+
+<view class='flex-row column margin-20 radius-10 padding-20 bg-gray'>
+  <view class='   txt-black'>图片信息:</view>
+
+  <view class='flex-row margin-top-20'>
+    <view class='    txt-gray h5   '>类型: </view>
+    <view class='h5   txt-black flex-1 margin-left-10'>蓄水池</view>
+  </view>
+
+  <view class='flex-row margin-top-20'>
+    <view class='    txt-gray h5   '>名称: </view>
+    <view class='h5   txt-black flex-1 margin-left-10'>111</view>
+  </view>
+
+  <view class='flex-row margin-top-20'>
+    <view class='    txt-gray h5   '>数据: </view>
+    <view class='h5   txt-black flex-1 margin-left-10'>111</view>
+  </view>
+
+  <view class='flex-row margin-top-20'>
+    <view class='    txt-gray h5   '>照片详情: </view>
+    <view class='h5   txt-black flex-1 margin-left-10'>111</view>
+  </view>
+
+  <view class='flex-row column margin-top-20'>
+    <view class='    txt-gray h5   '>工程描述: </view>
+    <view class='  h5 txt-black flex-1 margin-left-10'>asdasdasdsdassssssssssssssssssssssssssssssssss</view>
+  </view>
+
+</view>
