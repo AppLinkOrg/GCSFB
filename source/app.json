@@ -1,13 +1,14 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/work/work",
+    "pages/mine/mine",
     "pages/login/login",
     "pages/workdetails/workdetails",
     "pages/mywork/mywork",
     "pages/calculation/calculation",
     "pages/imgupload/imgupload",
     "pages/createtask/createtask",
-    "pages/mine/mine",
     "pages/auth/auth",
     "pages/aboutus/aboutus"
   ],

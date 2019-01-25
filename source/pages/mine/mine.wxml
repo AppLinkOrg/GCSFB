@@ -8,7 +8,7 @@
 
 
 <view class='bg-white'>
-<navigator url='/pages/myreading/myreading' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20' style=''>
+<navigator url='/pages/mywork/mywork' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20' style=''>
   <image class='icon-25' src='{{uploadpath}}resource/{{res.wodexiangmu}}'></image>
   <view class='margin-left-20 txt-bold txt-black h5'>我的项目</view>
 </navigator>

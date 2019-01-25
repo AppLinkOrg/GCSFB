@@ -22,11 +22,16 @@ class Content extends AppBase {
     var that = this;
   }
 
+
+
   bindtocreat(e) {
     wx.navigateTo({
-      url: '/pages/createtask/createtask',
+      url: '/pages/work/work',
     })
   }
+
+
+
   bindtomine(e) {
     wx.navigateTo({
       url: '/pages/mine/mine',
