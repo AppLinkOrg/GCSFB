@@ -1,0 +1,10 @@
+<!--pages/position/position.wxml-->
+<view class='padding-10 flex-row  flex-center flex-wrap'>
+
+<view class='block  margin-5 bg-white flex-row flex-center ' bindtap='totypelist' style='' wx:for='{{psnlist}}' wx:key='k' wx:for-index='idx'>
+
+<view class='flex-1 text-center'>{{item.psn_name}}</view>
+
+</view>
+
+</view>

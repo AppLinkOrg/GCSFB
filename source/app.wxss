@@ -196,6 +196,9 @@ view, navigator, input, text, textarea {
 .txt-orange {
   color: orange;
 }
+.txt-dominant {
+  color: #faa71d;
+}
 
 .txt-gray_white {
   color: rgb(211, 211, 211);

@@ -1,15 +1,15 @@
 /*******使用方法，下面两句复制到page的js文件的头部
 
 import { ApiConfig } from '../../apis/apiconfig';
-import { InstApi } from '../../apis/member.api';
+import { InstApi } from '../../apis/engineering.api';
 
-var memberApi=new MemberApi();
+var engineeringApi=new EngineeringApi();
 *******/
 import { ApiConfig } from 'apiconfig';
-export class MemberApi{
+export class EngineeringApi{
 
 
-    getuserinfo(json, callback, showLoading = true) {
+    englist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class MemberApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'member/getuserinfo',
+            url: ApiConfig.GetApiUrl() + 'engineering/englist',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class MemberApi{
         })
     }
 
-    info(json, callback, showLoading = true) {
+    psnlist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class MemberApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'member/info',
+            url: ApiConfig.GetApiUrl() + 'engineering/psnlist',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -73,7 +73,7 @@ export class MemberApi{
         })
     }
 
-    setvalue(json, callback, showLoading = true) {
+    sftypelist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -82,7 +82,7 @@ export class MemberApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'member/setvalue',
+            url: ApiConfig.GetApiUrl() + 'engineering/sftypelist',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -105,7 +105,7 @@ export class MemberApi{
         })
     }
 
-    update(json, callback, showLoading = true) {
+    addbasicswork(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -114,7 +114,7 @@ export class MemberApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'member/update',
+            url: ApiConfig.GetApiUrl() + 'engineering/addbasicswork',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -137,7 +137,7 @@ export class MemberApi{
         })
     }
 
-    updatelocation(json, callback, showLoading = true) {
+    addnewdata(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -146,39 +146,7 @@ export class MemberApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'member/updatelocation',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    updatemobile(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'member/updatemobile',
+            url: ApiConfig.GetApiUrl() + 'engineering/addnewdata',
             data: json,
             method: 'POST',
             dataType: 'json',

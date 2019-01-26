@@ -5,7 +5,7 @@
   <view class='txt-white flex-1 text-center txt-bold'>上报日期</view>
 </view>
 
-<view class='flex-row flex-center padding-20 list'>
+<view class='flex-row flex-center padding-20 list' bindtap='toworkdetails'>
   <view class=' flex-1  txt-black h5'>工程一</view>
   <view class=' flex-1 text-center txt-black h5'>氽水特</view>
   <view class=' flex-1 text-center txt-black h5'>2018年8月1日</view>

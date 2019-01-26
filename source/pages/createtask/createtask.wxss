@@ -10,4 +10,11 @@
 .btn {
   height: 80rpx;
   line-height: 80rpx;
+  /* position: absolute;
+  bottom: 120rpx;
+  width: 95%; */
+}
+.img{
+  width: 350rpx;
+  height: 200rpx;
 }

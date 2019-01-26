@@ -1,6 +1,7 @@
 /* pages/work/work.wxss */
 Page{
-  padding-top: 90rpx;
+  padding-top: 80rpx;
+  background: #E5E5E5;
 }
 .top{
   position: fixed;

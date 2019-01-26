@@ -2,6 +2,7 @@
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
+import { EngineeringApi } from "../../apis/engineering.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -26,35 +27,54 @@ class Content extends AppBase {
   confirm(e){
     var that = this;
     var data = e.detail.value;
-    if (data.person == "") {
-      this.Base.info("填写联系人");
+    
+    if (data.type == "") {
+      this.Base.info("填写默认关联部位类型");
       return;
     }
-    if (data.date == "") {
-      this.Base.info("选择日期");
+
+    if (data.type_num == "") {
+      this.Base.info("请输入部位类型编号");
       return;
     }
-    if (data.name == "") {
-      this.Base.info("填写工程名称");
+
+    if (data.remarks == "") {
+      this.Base.info("请填写备注");
       return;
     }
-    if (data.address == "") {
-      this.Base.info("填写工程地址");
-      return;
-    }
-    if (data.description == "") {
-      this.Base.info("填写工程描述");
-      return;
-    }
+
     // if (data.scdate == "") {
     //   this.Base.info("上传照片");
     //   return;
     // }
-    var person = data.person;
-    var date=this.Base.getMyData().date;
-    var name=data.name;
-    var address=data.address;
-    var description = data.description;
+    var type = data.type;
+    //var date=this.Base.getMyData().date;
+    var type_num = data.type_num;
+    var remarks = data.remarks;
+    //var description = data.description;
+    wx.showModal({
+      title: '',
+      content: '您是否确认提交？',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#EE2222',
+      confirmText: '确定',
+      confirmColor: '#2699EC',
+      success: function (res) {
+        var engapi = new EngineeringApi();
+        if (res.confirm) {
+          engapi.addbasicswork({ status: "A", type: type, type_num: type_num, remarks: remarks }, (addbasicswork) => {
+            that.Base.setMyData({ addbasicswork })
+          })
+        }
+        wx.showToast({
+          title: '提交成功',
+        })
+      }
+    })
+    
+    
+
   }
   
   toimgupload(e){

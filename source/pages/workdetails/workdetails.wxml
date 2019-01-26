@@ -1,52 +1,68 @@
 <!--pages/workdetails/workdetails.wxml-->
-<view class='margin-20 bg-gray padding-20 txt-black radius-10'>工程名称:XXX</view>
+<view class='margin-20 bg-gray padding-20 txt-black radius-10 h4'>工程名称:XXX</view>
 
 <view class='flex-row column margin-20 radius-10 padding-20 bg-gray'>
-  <view class='   txt-black'>基本信息:</view>
+  <view class='txt-black'>基本信息:</view>
 
-  <view class='flex-row margin-top-20'>
-    <view class='    txt-gray h5   '>上报日期: </view>
-    <view class='h5   txt-black flex-1 margin-left-10'>2018年11月20日</view>
-  </view>
+    <view class='flex-row flex-center  margin-top-20'>
+      <view class='h5'>部   位：</view>
+      <view class='h5 txt-black'>清淤</view>
+    </view>
 
-  <view class='flex-row margin-top-20'>
-    <view class='    txt-gray h5   '>工程地址: </view>
-    <view class='h5   txt-black flex-1 margin-left-10'>asdasdasdsdassssssssssssssssssssssssssssssssss</view>
-  </view>
+    <view class='flex-row flex-center margin-top-20'>
+      <view class='h5'>部位类型：</view>
+      <view class='h5 txt-black'>清淤</view>
+    </view>
 
-  <view class='flex-row column margin-top-20'>
-    <view class='    txt-gray h5   '>工程描述: </view>
-    <view class='  h5 txt-black flex-1 margin-left-10'>asdasdasdsdassssssssssssssssssssssssssssssssss</view>
-  </view>
+    <view class='flex-row flex-center margin-top-20'>
+      <view class='h5'>类型编号：</view>
+      <view class='h5 txt-black'>1580平方米</view>
+    </view>
+
+    <view class='flex-row flex-center margin-top-20'>
+      <view class='h5'>上报日期：</view>
+      <view class='h5 txt-black'>2018年12月12日</view>
+    </view>
+    
+    <view class='flex-row column margin-top-20'>
+      <view class='h5'>工程描述：</view>
+      <view class='txt-black h5 margin-top-10'>少时诵诗书所所所所所所所所所所所所所所所所所所所所所</view>
+    </view>
 
 </view>
 
 <view class='flex-row column margin-20 radius-10 padding-20 bg-gray'>
-  <view class='   txt-black'>图片信息:</view>
 
-  <view class='flex-row margin-top-20'>
-    <view class='    txt-gray h5   '>类型: </view>
-    <view class='h5   txt-black flex-1 margin-left-10'>蓄水池</view>
-  </view>
 
-  <view class='flex-row margin-top-20'>
-    <view class='    txt-gray h5   '>名称: </view>
-    <view class='h5   txt-black flex-1 margin-left-10'>111</view>
-  </view>
+  <view class=' txt-black'>图片信息:</view>
 
-  <view class='flex-row margin-top-20'>
-    <view class='    txt-gray h5   '>数据: </view>
-    <view class='h5   txt-black flex-1 margin-left-10'>111</view>
-  </view>
+    <view class='flex-row flex-center margin-top-20'>
+      <view class='h5 '>收方类型：</view>
+      <view class='h5 txt-black'>清淤</view>
+    </view>
 
-  <view class='flex-row margin-top-20'>
-    <view class='    txt-gray h5   '>照片详情: </view>
-    <view class='h5   txt-black flex-1 margin-left-10'>111</view>
-  </view>
+    <view class='flex-row flex-center margin-top-20'>
+      <view class='h5'>收方方式：</view>
+      <view class='h5 txt-black'>清淤</view>
+    </view>
 
-  <view class='flex-row column margin-top-20'>
-    <view class='    txt-gray h5   '>工程描述: </view>
-    <view class='  h5 txt-black flex-1 margin-left-10'>asdasdasdsdassssssssssssssssssssssssssssssssss</view>
+    <view class='flex-row flex-center margin-top-20'>
+      <view class='h5'>数据：</view>
+      <view class='h5 txt-black'>1580平方米</view>
+    </view>
+
+    <view class='flex-row column margin-top-20'>
+      <view class='h5'>备注：</view>
+      <view class='margin-top-10 h5 txt-black'>阿斯蒂芬多所过多付过所多付过所付过所多过发所多多多多多多多多多多多多多多多多多多多多</view>
+    </view>
+
+    <view class='flex-row column margin-top-20'>
+      <view class='h5'>照片：</view>
+      <view class='flex-row flex-center margin-top-20'>
+      <view class='flex-1'><image class='img radius-10' src='{{uploadpath}}resource/{{res.BGI}}'></image></view>
+      <view class='flex-1 margin-left-10'><image class='img radius-10' src='{{uploadpath}}resource/{{res.BGI}}'></image></view>
+      </view>
+
   </view>
 
 </view>

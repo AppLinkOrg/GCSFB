@@ -1,14 +1,16 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/login/login",
+    "pages/createtask/createtask",
+    "pages/imgupload/imgupload",
+    "pages/workdetails/workdetails",
+    "pages/typelist/typelist",
+    "pages/position/position",
     "pages/work/work",
     "pages/mine/mine",
-    "pages/login/login",
-    "pages/workdetails/workdetails",
     "pages/mywork/mywork",
     "pages/calculation/calculation",
-    "pages/imgupload/imgupload",
-    "pages/createtask/createtask",
     "pages/auth/auth",
     "pages/aboutus/aboutus"
   ],
@@ -17,6 +19,7 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
+  
   "window":{
     "backgroundTextStyle":"light",
     "enablePullDownRefresh": true,

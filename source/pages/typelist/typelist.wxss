@@ -1,0 +1,10 @@
+/* pages/typelist/typelist.wxss */
+.border-top{
+  border-top: 1rpx solid #c0b1c3;
+}
+.padding{
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}

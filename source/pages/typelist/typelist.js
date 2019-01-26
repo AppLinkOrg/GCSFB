@@ -1,4 +1,4 @@
-// pages/work/work.js
+// pages/typelist/typelist.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
@@ -15,15 +15,20 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    var engapi =new EngineeringApi();
-    engapi.englist({}, (englist)=>{
-      this.Base.setMyData({englist})
+    var engapi = new EngineeringApi();
+    engapi.psnlist({ orderby: 'r_main.id' }, (psnlist) => {
+      this.Base.setMyData({ psnlist })
     })
   }
-  
-  tocreatetask(e){
-   wx.navigateTo({
-     url: '/pages/position/position',
+
+  tocreatetask(e) {
+    wx.navigateTo({
+      url: '/pages/createtask/createtask',
+    })
+  }
+  bindtoshow(e){
+    this.Base.setMyData({
+      show:1
     })
   }
 
@@ -31,6 +36,8 @@ class Content extends AppBase {
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
-body.onMyShow = content.onMyShow; 
-body.tocreatetask = content.tocreatetask;
+body.onMyShow = content.onMyShow;
+body.totypelist = content.totypelist;
+body.bindtoshow = content.bindtoshow; 
+body.tocreatetask = content.tocreatetask; 
 Page(body)

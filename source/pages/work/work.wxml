@@ -1,15 +1,11 @@
 <!--pages/work/work.wxml-->
 <view class='flex-row flex-center padding-20 bg-dominant top'>
-  <view class='txt-white flex-1 text-center txt-bold'>工程名称</view>
-  <view class='txt-white flex-1 text-center txt-bold'>部位</view>
+  <view class='txt-white flex-1 text-center txt-bold'>项目类型</view>
+  <view class='txt-white flex-1 text-center txt-bold'>项目名称</view>
 </view>
 
-<view class='flex-row flex-center padding-20 list' bindtap='tocreatetask'>
-  <view class=' flex-1  text-center txt-black h5'>工程一</view>
-  <view class=' flex-1 text-left txt-black h5'>阿斯顿氽水特氽水特氽水特氽水特</view>
-</view>
 
-<view class='flex-row flex-center padding-20 list bg-gray'>
-  <view class=' flex-1 text-center  txt-black h5'>工程二</view>
-  <view class=' flex-1 text-left txt-black h5'>阿斯顿氽水特氽水特氽水特氽水特</view>
+<view wx:for='{{englist}}' wx:key='k' wx:for-index='idx' class='flex-row flex-center padding-20 list {{idx%2==0?"bg-white":""}}' bindtap='tocreatetask'>
+  <view class=' flex-1  text-center txt-black h5'>{{item.engtype_typename}}</view>
+  <view class=' flex-1 text-left txt-black h5'>{{item.eng_name}}</view>
 </view>

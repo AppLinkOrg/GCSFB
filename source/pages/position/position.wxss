@@ -1,0 +1,12 @@
+/* pages/position/position.wxss */
+
+Page {
+  background: #e5e5e5;
+}
+
+.block {
+  /* border: 1rpx solid black; */
+  height: 100rpx;
+  width: 170rpx;
+  border-radius: 20rpx;
+}

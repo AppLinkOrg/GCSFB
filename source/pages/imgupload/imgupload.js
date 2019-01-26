@@ -16,7 +16,10 @@ class Content extends AppBase {
 
   onMyShow() {
     var that = this;
+
   }
+
+
 
 }
 var content = new Content();
