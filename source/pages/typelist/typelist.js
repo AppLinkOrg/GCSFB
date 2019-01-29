@@ -16,8 +16,8 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var engapi = new EngineeringApi();
-    engapi.psnlist({ orderby: 'r_main.id' }, (psnlist) => {
-      this.Base.setMyData({ psnlist })
+    engapi.partlist({ position_id: this.Base.options.position_id, "orderby": "r_main.seq" }, (partlist) => {
+      this.Base.setMyData({ partlist })
     })
   }
 

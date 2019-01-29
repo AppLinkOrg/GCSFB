@@ -1,8 +1,8 @@
 {
   "pages":[
+    "pages/createtask/createtask",
     "pages/home/home",
     "pages/login/login",
-    "pages/createtask/createtask",
     "pages/imgupload/imgupload",
     "pages/workdetails/workdetails",
     "pages/typelist/typelist",

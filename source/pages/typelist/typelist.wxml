@@ -1,6 +1,6 @@
 <!--pages/typelist/typelist.wxml-->
-<view bindtap='tocreatetask' class='flex-row flex-center padding {{idx>0?"border-top":""}} ' wx:for='{{psnlist}}' wx:key='k' wx:for-index='idx'>
-<view class='flex-1 txt-black txt-bold'>{{item.psn_name}}</view>
+<view bindtap='tocreatetask' class='flex-row flex-center padding {{idx>0?"border-top":""}} ' wx:for='{{partlist}}' wx:key='k' wx:for-index='idx'>
+<view class='flex-1 txt-black txt-bold'>{{item.name}}</view>
 <image bindtap='bindtoshow' class='icon-25' src='{{uploadpath}}resource/{{res.shangchuanzhaopian}}'></image>
 </view>
 

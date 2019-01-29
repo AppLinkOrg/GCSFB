@@ -16,14 +16,14 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var engapi = new EngineeringApi();
-    engapi.psnlist({orderby:'r_main.id'}, (psnlist) => {
+    engapi.psnlist({ eng_id: this.Base.options.eng_id,orderby:'r_main.seq'}, (psnlist) => {
       this.Base.setMyData({ psnlist })
     })
   }
 
   totypelist(e) {
     wx.navigateTo({
-      url: '/pages/typelist/typelist',
+      url: '/pages/typelist/typelist?position_id='+e.currentTarget.id,
     })
   }
 
