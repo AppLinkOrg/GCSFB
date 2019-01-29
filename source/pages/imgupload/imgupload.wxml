@@ -1,7 +1,18 @@
 <!--pages/imgupload/imgupload.wxml-->
 <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
   <view class='padding-20' style='border-bottom:6rpx solid #e5e5e5'>
-    <view class='txt-black h4 '>图片编号</view>
+    <view class='flex-row flex-center mid'>
+      <view class=''>
+        部位类型
+      </view>
+
+      <view class='flex-1 margin-left-20 radius-10 flex-row flex-center' style='border:1rpx solid #e5e5e5'>
+
+        <input class='padding-left-10 txt-black flex-1' disabled='false' placeholder='请选择收方类型' name='person' style=''></input>
+        <image src='{{uploadpath}}resource/{{res.bottom}}' class='icon-15 margin-right-10'></image>
+      </view>
+
+    </view>
 
     <view class='flex-row flex-center mid'>
       <view class=''>
@@ -9,7 +20,7 @@
       </view>
 
       <view class='flex-1 margin-left-20 radius-10 flex-row flex-center' style='border:1rpx solid #e5e5e5'>
-      
+
         <input class='padding-left-10 txt-black flex-1' disabled='false' placeholder='请选择收方类型' name='person' style=''></input>
         <image src='{{uploadpath}}resource/{{res.bottom}}' class='icon-15 margin-right-10'></image>
       </view>
