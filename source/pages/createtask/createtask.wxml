@@ -4,41 +4,13 @@
 
     <view class='txt-black h4 '>基本信息</view>
 
-    <!-- <view class='flex-row flex-center mid'>
-      <view class=''>
-        <image class='icon-25' src='{{uploadpath}}resource/{{res.morenlianxiren}}'></image>
-      </view>
-      <view class='flex-1 margin-left-20'>
-        <input class='padding-10 txt-black' placeholder='默认关联该账号的有效联系人' name='person' style='border-bottom:1rpx solid #e5e5e5'></input>
-      </view>
-    </view>
-
-    <view class='flex-row flex-center mid'>
-      <view class=''>
-        <image class='icon-25' src='{{uploadpath}}resource/{{res.xuanzeriqi}}'></image>
-      </view>
-      <view class='flex-1 margin-left-20'>
-        <picker mode='date' bindchange="binddate" start='{{today}}'>
-          <input name='date' class='padding-10 txt-black' disabled='true' placeholder='请选择日期' value='{{date}}' style='border-bottom:1rpx solid #e5e5e5'></input>
-          </picker>
-      </view>
-    </view>
-
-    <view class='flex-row flex-center mid'>
-      <view class=''>
-        <image class='icon-25' src='{{uploadpath}}resource/{{res.gongchengmingcheng}}'></image>
-      </view>
-      <view class='flex-1 margin-left-20'>
-        <input class='padding-10 txt-black' placeholder='请输入工程名称' name='name' style='border-bottom:1rpx solid #e5e5e5'></input>
-      </view>
-    </view> -->
 
     <view class='flex-row flex-center mid'>
       <view class='txt-black'>
         部位类型：
       </view>
       <view class='flex-1 margin-top-5'>
-        <input class='padding-10 txt-black h5' disabled='fasle'  placeholder='默认关联部位类型' name='type'></input>
+        <input class='padding-10 txt-black h5' disabled='fasle' placeholder='默认关联部位类型' value='{{partinfo.position_name}} {{partinfo.name}}' name='type'></input>
       </view>
     </view>
 
@@ -47,7 +19,7 @@
         <image class='icon-25' src='{{uploadpath}}resource/{{res.tupianbianhao}}'></image>
       </view>
       <view class='flex-1 margin-left-20'>
-        <input class='padding-10 txt-black' placeholder='请输入部位类型编号'  name='type_num' style='border-bottom:1rpx solid #e5e5e5'></input>
+        <input class='padding-10 txt-black' placeholder='请输入部位类型编号' name='no' value='{{no}}' style='border-bottom:1rpx solid #e5e5e5'></input>
       </view>
     </view>
 
@@ -56,7 +28,7 @@
   <view class='padding-20' style='border-bottom:6rpx solid #e5e5e5'>
     <view class='txt-black h4 '>备注</view>
     <view class=' margin-top-20'>
-      <textarea class='padding-20 radius-10 txt-black h5' fixed="{{true}}" maxlength='-1' name='remarks' auto-height='{{true}}' style='border:1rpx solid #e5e5e5;width:93%;min-height:200rpx;' placeholder='请填写备注'></textarea>
+      <textarea class='padding-20 radius-10 txt-black h5' fixed="{{true}}" maxlength='-1'  value='{{remark}}'  name='remark' auto-height='{{true}}' style='border:1rpx solid #e5e5e5;width:93%;min-height:200rpx;' placeholder='请填写备注'></textarea>
     </view>
   </view>
 
@@ -65,34 +37,35 @@
     <image bindtap='toimgupload' class='icon-25' src='{{uploadpath}}resource/{{res.shangchuanzhaopian}}'></image>
   </view>
 
-  <view class='flex-row column padding-20'>
+  <view class='flex-row column padding-20' wx:for="{{workinfolist}}"  bindtap='toimgupload' id="{{workinfo.id}}" wx:for-item='workinfo' wx:for-index="idx">
 
 
     <view class='flex-row flex-center '>
       <view>收方类型：</view>
-      <view>清淤</view>
+      <view>{{workinfo.type_name}}</view>
     </view>
 
     <view class='flex-row flex-center margin-top-20'>
       <view>收方方式：</view>
-      <view>清淤</view>
+      <view>{{workinfo.way_name}}</view>
     </view>
 
     <view class='flex-row flex-center margin-top-20'>
       <view>数据：</view>
-      <view>1580平方米</view>
+      <view>{{workinfo.result}}</view>
     </view>
 
     <view class='flex-row column margin-top-20'>
       <view>备注：</view>
-      <view class='margin-top-10'>阿斯蒂芬多所过多付过所多付过所付过所多过发所多多多多多多多多多多多多多多多多多多多多</view>
+      <view class='margin-top-10'>{{workinfo.remarks}}</view>
     </view>
 
     <view class='flex-row column margin-top-20'>
       <view>照片：</view>
-      <view class='flex-row flex-center margin-top-20'>
-      <view class='flex-1'><image class='img radius-10' src='{{uploadpath}}resource/{{res.BGI}}'></image></view>
-      <view class='flex-1 margin-left-10'><image class='img radius-10' src='{{uploadpath}}resource/{{res.BGI}}'></image></view>
+      <view class='flex-row flex-center flex-wrap'>
+        <view wx:for="{{workinfo.photos}}">
+          <image class='img radius-10' src='{{uploadpath}}eng/{{item.img}}'></image>
+        </view>
       </view>
 
     </view>

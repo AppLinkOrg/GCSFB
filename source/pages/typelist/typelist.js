@@ -22,8 +22,11 @@ class Content extends AppBase {
   }
 
   tocreatetask(e) {
+    var workdata_id=e.currentTarget.dataset.id;
+    // console.log(workdata_id);
+    // return;
     wx.navigateTo({
-      url: '/pages/createtask/createtask',
+      url: '/pages/createtask/createtask?part_id=' + e.currentTarget.id + (workdata_id == undefined ? "" : "&workdata_id=" + workdata_id),
     })
   }
   bindtoshow(e){

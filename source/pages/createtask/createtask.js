@@ -1,8 +1,16 @@
 // pages/createtask/createtask.js
-import { AppBase } from "../../appbase";
-import { ApiConfig } from "../../apis/apiconfig";
-import { InstApi } from "../../apis/inst.api.js";
-import { EngineeringApi } from "../../apis/engineering.api.js";
+import {
+  AppBase
+} from "../../appbase";
+import {
+  ApiConfig
+} from "../../apis/apiconfig";
+import {
+  InstApi
+} from "../../apis/inst.api.js";
+import {
+  EngineeringApi
+} from "../../apis/engineering.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -10,12 +18,51 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
+    //options.part_id = 1;
     super.onLoad(options);
-    this.Base.setMyData({today: this.Base.util.FormatDate(new Date())})
+    this.Base.setMyData({
+      worklist:[],
+      workinfolist:[],
+      today: this.Base.util.FormatDate(new Date())
+    })
   }
   onMyShow() {
     var that = this;
+    var api = new EngineeringApi();
+    api.partinfo({
+      id: this.Base.options.part_id
+    }, (partinfo) => {
+      this.Base.setMyData({
+        partinfo
+      });
+    });
+    this.loadworklist();
+    if (this.Base.options.workdata_id){
+      api.workdatainfo({
+        id: this.Base.options.workdata_id
+      }, (workdatainfo) => {
+        this.Base.setMyData({
+          no: workdatainfo.no,
+          remark: workdatainfo.remark,
+          worklist: workdatainfo.worklist
+        });
+        this.loadworklist();
+      });
+    }
+  }
+  loadworklist() {
+    var api = new EngineeringApi();
+    var worklist = this.Base.getMyData().worklist;
+    if (worklist.length > 0) {
+      console.log(worklist.join(","));
+      api.workinfolist({
+        idlist: worklist.join(",")
+      }, (workinfolist) => {
+        this.Base.setMyData({
+          workinfolist
+        });
+      });
+    }
   }
   binddate(e) {
     console.log(e);
@@ -24,25 +71,28 @@ class Content extends AppBase {
       date: e.detail.value
     })
   }
-  confirm(e){
+  confirm(e) {
     var that = this;
     var data = e.detail.value;
-    
-    if (data.type == "") {
-      this.Base.info("填写默认关联部位类型");
-      return;
-    }
 
-    if (data.type_num == "") {
+    if (data.no == "") {
       this.Base.info("请输入部位类型编号");
       return;
     }
 
-    if (data.remarks == "") {
+    if (data.remark == "") {
       this.Base.info("请填写备注");
       return;
     }
 
+    var workinfolist=this.Base.getMyData().workinfolist;
+    if(workinfolist.length==0){
+      this.Base.info("请添加收方数据");
+      return;
+    }
+    var worklist = this.Base.getMyData().worklist ;
+    data.part_id=this.Base.options.part_id;
+    data.idlist= worklist.join(",");
     // if (data.scdate == "") {
     //   this.Base.info("上传照片");
     //   return;
@@ -60,27 +110,50 @@ class Content extends AppBase {
       cancelColor: '#EE2222',
       confirmText: '确定',
       confirmColor: '#2699EC',
-      success: function (res) {
+      success: function(res) {
         var engapi = new EngineeringApi();
         if (res.confirm) {
-          engapi.addbasicswork({ status: "A", type: type, type_num: type_num, remarks: remarks }, (addbasicswork) => {
-            that.Base.setMyData({ addbasicswork })
+          engapi.addbasicswork(data, (res) => {
+            if(res.code==0){
+
+              wx.showToast({
+                title: '提交成功',
+              })
+              wx.navigateBack({
+
+              })
+            }else{
+              that.info(res.result);
+            }
           })
         }
-        wx.showToast({
-          title: '提交成功',
-        })
       }
     })
-    
-    
+
+
 
   }
-  
-  toimgupload(e){
+
+  toimgupload(e) {
+    var work_id = e.currentTarget.id;
+    console.log(work_id);
     wx.navigateTo({
-     url: '/pages/imgupload/imgupload',
+      url: '/pages/imgupload/imgupload?part_id=' + this.Base.options.part_id + (work_id == "" ? "" : "&work_id=" + work_id),
     })
+  }
+  dataReturnCallback(callbackid, data) {
+    console.log(data);
+    var worklist=this.Base.getMyData().worklist;
+    worklist.push(data.work_id);
+   
+    // var api = new EngineeringApi();
+    // api.workinfo({
+    //   id: data.work_id
+    // }, (workinfo) => {
+    //   this.Base.setMyData({
+    //     workinfo
+    //   });
+    // }); 
   }
 }
 
@@ -90,5 +163,6 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.confirm = content.confirm;
 body.binddate = content.binddate;
+body.loadworklist = content.loadworklist;
 body.toimgupload = content.toimgupload;
 Page(body)

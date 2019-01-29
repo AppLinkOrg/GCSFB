@@ -1,11 +1,11 @@
 {
   "pages":[
-    "pages/createtask/createtask",
     "pages/home/home",
-    "pages/login/login",
-    "pages/imgupload/imgupload",
-    "pages/workdetails/workdetails",
     "pages/typelist/typelist",
+    "pages/createtask/createtask",
+    "pages/imgupload/imgupload",
+    "pages/login/login",
+    "pages/workdetails/workdetails",
     "pages/position/position",
     "pages/work/work",
     "pages/mine/mine",

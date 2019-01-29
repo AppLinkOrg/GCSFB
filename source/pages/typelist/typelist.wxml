@@ -1,7 +1,13 @@
 <!--pages/typelist/typelist.wxml-->
-<view bindtap='tocreatetask' class='flex-row flex-center padding {{idx>0?"border-top":""}} ' wx:for='{{partlist}}' wx:key='k' wx:for-index='idx'>
-<view class='flex-1 txt-black txt-bold'>{{item.name}}</view>
-<image bindtap='bindtoshow' class='icon-25' src='{{uploadpath}}resource/{{res.shangchuanzhaopian}}'></image>
+<view  class='{{idx>0?"border-top":""}} '  wx:for='{{partlist}}' wx:key='k' wx:for-index='idx'>
+  <view class='flex-row flex-center padding ' id="{{item.id}}"  bindtap='tocreatetask'>
+
+    <view class='flex-1 txt-black txt-bold'>{{item.name}}</view>
+    <image bindtap='bindtoshow' class='icon-25' src='{{uploadpath}}resource/{{res.shangchuanzhaopian}}'></image>
+  </view>
+  <view wx:for="{{item.workdatalist}}" wx:for-index="idx" wx:for-item="wk"  id="{{item.id}}" data-id="{{wk.id}}" class='padding bg-gray' bindtap='tocreatetask' >
+    {{wk.no}}
+  </view>
 </view>
 
 
@@ -9,5 +15,3 @@
 <!-- <view class='bg-gray flex-row flex-center padding {{idx>0?"border-top":""}} ' wx:for-index='idx'>
 <view class='flex-1 txt-dominant txt-bold'>1</view>
 </view> -->
-
-
