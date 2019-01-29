@@ -204,17 +204,26 @@ export class AppBase {
                 //that.Base.getAddress();
               });
             },
-            fail: res => {
-              console.log("auth fail");
+            fail: faukres => {
+              var memberapi = new MemberApi();
               console.log(res);
+              memberapi.getuserinfo({ code: res.code, grant_type: "authorization_code" }, data => {
+                console.log(data);
+                AppBase.UserInfo.openid = data.openid;
+                AppBase.UserInfo.session_key = data.session_key;
+                ApiConfig.SetToken(data.openid);
+                memberapi.update(AppBase.UserInfo, () => {
+                  if (this.Base.needauth == true) {
+                    wx.navigateTo({
+                      url: '/pages/auth/auth',
+                    })
+                  } else {
+                    that.onMyShow();
+                  }
+                });
+              });
               //that.Base.gotoOpenUserInfoSetting();
-              if (this.Base.needauth == true) {
-                wx.redirectTo({
-                  url: '/pages/auth/auth',
-                })
-              } else {
-                that.onMyShow();
-              }
+              
               //that.getAddress();
             }
           });
@@ -306,8 +315,8 @@ export class AppBase {
     var data = this.Base.getMyData();
     console.log(data);
 
-    e.detail.session_key = AppBase.session_key;
-    e.detail.openid = AppBase.openid;
+    e.detail.session_key = AppBase.UserInfo.session_key;
+    e.detail.openid = AppBase.UserInfo.openid;
     console.log(e.detail);
     api.decrypteddata(e.detail, (ret) => {
       console.log(ret);
