@@ -1,6 +1,7 @@
 /* pages/mywork/mywork.wxss */
 Page{
-  padding-top: 90rpx;
+  padding-top: 80rpx;
+  background: #E5E5E5;
 }
 .top{
   position: fixed;
@@ -8,7 +9,7 @@ Page{
   top: 0;
 }
 .list{
-  padding-left: 40rpx;
+  padding-left: 20rpx;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
   padding-right: 20rpx;

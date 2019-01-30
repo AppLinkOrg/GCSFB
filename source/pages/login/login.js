@@ -2,6 +2,7 @@
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
+import { MemberApi } from "../../apis/member.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -10,10 +11,16 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
+    this.Base.needauth=false;
     super.onLoad(options);
   }
   onMyShow() {
     var that = this;
+  }
+
+  phonenoCallback(phoneno, e) {
+    console.log(phoneno);
+    this.Base.setMyData({ mobile: phoneno });
   }
   confirm(e) {
     var that = this;
@@ -29,9 +36,17 @@ class Content extends AppBase {
     
     var mobile = data.mobile;
     var name = data.name;
-
-    wx.reLaunch({
-      url: '/pages/home/home',
+    var openid = AppBase.UserInfo.openid;
+    var session_key = AppBase.UserInfo.session_key;
+    var api=new MemberApi();
+    api.login({mobile,name,openid,session_key},(ret)=>{
+      if(ret.code==0){
+        wx.reLaunch({
+          url: '/pages/home/home',
+        })
+      }else{
+        this.Base.info("用户信息不正确");
+      }
     })
   }
 }

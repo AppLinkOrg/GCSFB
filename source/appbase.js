@@ -119,7 +119,9 @@ export class AppBase {
     this.Base.setMyData({ options: options });
 
     ApiConfig.SetUnicode(this.Base.unicode);
-
+    wx.hideShareMenu({
+      
+    })
 
   }
 
@@ -175,57 +177,18 @@ export class AppBase {
         success: res => {
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
           console.log(res);
-          wx.getUserInfo({
-            success: userres => {
-              AppBase.UserInfo = userres.userInfo;
-              console.log(userres);
-
-              var memberapi = new MemberApi();
-              memberapi.getuserinfo({ code: res.code, grant_type: "authorization_code" }, data => {
-                console.log("here");
-                console.log(data);
-                AppBase.UserInfo.openid = data.openid;
-                AppBase.UserInfo.session_key = data.session_key;
-                console.log(AppBase.UserInfo);
-                ApiConfig.SetToken(data.openid);
-                console.log("goto update info");
-                //this.loadtabtype();
-
-
-                memberapi.update(AppBase.UserInfo, () => {
-
-                  console.log(AppBase.UserInfo);
-                  that.Base.setMyData({ UserInfo: AppBase.UserInfo });
-
-                  that.checkPermission();
-
-                });
-
-                //that.Base.getAddress();
-              });
-            },
-            fail: faukres => {
-              var memberapi = new MemberApi();
-              console.log(res);
-              memberapi.getuserinfo({ code: res.code, grant_type: "authorization_code" }, data => {
-                console.log(data);
-                AppBase.UserInfo.openid = data.openid;
-                AppBase.UserInfo.session_key = data.session_key;
-                ApiConfig.SetToken(data.openid);
-                memberapi.update(AppBase.UserInfo, () => {
-                  if (this.Base.needauth == true) {
-                    wx.navigateTo({
-                      url: '/pages/auth/auth',
-                    })
-                  } else {
-                    that.onMyShow();
-                  }
-                });
-              });
-              //that.Base.gotoOpenUserInfoSetting();
-              
-              //that.getAddress();
-            }
+          var memberapi = new MemberApi();
+          memberapi.getuserinfo({ code: res.code, grant_type: "authorization_code" }, data => {
+            console.log("here");
+            console.log(data);
+            AppBase.UserInfo.openid = data.openid;
+            AppBase.UserInfo.session_key = data.session_key;
+            console.log(AppBase.UserInfo);
+            ApiConfig.SetToken(data.openid);
+            console.log("goto update info");
+            //this.loadtabtype();
+            that.checkPermission();
+            //that.Base.getAddress();
           });
 
         }
@@ -249,9 +212,9 @@ export class AppBase {
     var memberapi = new MemberApi();
     var that = this;
     memberapi.info({}, (info) => {
-      if (info.mobile == "" && this.Base.needauth == true) {
-        wx.navigateTo({
-          url: '/pages/auth/auth',
+      if (info==null && this.Base.needauth == true) {
+        wx.reLaunch({
+          url: '/pages/login/login',
         })
       } else {
         this.Base.setMyData({ memberinfo: info });
