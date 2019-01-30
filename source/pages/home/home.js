@@ -25,6 +25,10 @@ class Content extends AppBase {
 
 
   bindtocreat(e) {
+    wx.setStorage({
+      key: 'isedit',
+      data: '1',
+    })
     wx.navigateTo({
       url: '/pages/work/work',
     })
@@ -33,6 +37,10 @@ class Content extends AppBase {
 
 
   bindtomine(e) {
+    wx.setStorage({
+      key: 'isedit',
+      data: '0',
+    })
     wx.navigateTo({
       url: '/pages/mine/mine',
     })

@@ -12,6 +12,9 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+
+    var isedit = wx.getStorageSync("isedit");
+    this.Base.setMyData({ isedit});
   }
   onMyShow() {
     var that = this;
@@ -25,9 +28,21 @@ class Content extends AppBase {
     var workdata_id=e.currentTarget.dataset.id;
     // console.log(workdata_id);
     // return;
-    wx.navigateTo({
-      url: '/pages/createtask/createtask?part_id=' + e.currentTarget.id + (workdata_id == undefined ? "" : "&workdata_id=" + workdata_id),
-    })
+
+
+    var isedit=wx.getStorageSync("isedit");
+    if(isedit=="1"){
+
+      wx.navigateTo({
+        url: '/pages/createtask/createtask?part_id=' + e.currentTarget.id + (workdata_id == undefined ? "" : "&workdata_id=" + workdata_id),
+      })
+    }else{
+      console.log('/pages/workdetails/workdetails?part_id=' + e.currentTarget.id + (workdata_id == undefined ? "" : "&workdata_id=" + workdata_id));
+      wx.navigateTo({
+        url: '/pages/workdetails/workdetails?part_id=' + e.currentTarget.id + (workdata_id == undefined ? "" : "&workdata_id=" + workdata_id),
+      })
+    }
+
   }
   bindtoshow(e){
     this.Base.setMyData({

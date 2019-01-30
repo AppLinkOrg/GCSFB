@@ -1,11 +1,11 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/workdetails/workdetails",
     "pages/typelist/typelist",
     "pages/createtask/createtask",
     "pages/imgupload/imgupload",
     "pages/login/login",
-    "pages/workdetails/workdetails",
     "pages/position/position",
     "pages/work/work",
     "pages/mine/mine",

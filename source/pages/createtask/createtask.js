@@ -20,6 +20,12 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.part_id = 1;
     super.onLoad(options);
+    wx.getStorage({
+      key: 'isedit',
+      success: (res)=>{
+        this.Base.setMyData({isedit:res});
+      },
+    })
     this.Base.setMyData({
       worklist:[],
       workinfolist:[],
@@ -139,6 +145,9 @@ class Content extends AppBase {
     console.log(work_id);
     wx.navigateTo({
       url: '/pages/imgupload/imgupload?part_id=' + this.Base.options.part_id + (work_id == "" ? "" : "&work_id=" + work_id),
+      fail:function(e){
+        console.log(e);
+      }
     })
   }
   dataReturnCallback(callbackid, data) {
