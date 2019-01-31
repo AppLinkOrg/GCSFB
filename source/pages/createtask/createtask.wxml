@@ -28,7 +28,7 @@
   <view class='padding-20' style='border-bottom:6rpx solid #e5e5e5'>
     <view class='txt-black h4 '>备注</view>
     <view class=' margin-top-20'>
-      <textarea class='padding-20 radius-10 txt-black h5' fixed="{{true}}" maxlength='-1'  value='{{remark}}'  name='remark' auto-height='{{true}}' style='border:1rpx solid #e5e5e5;width:93%;min-height:200rpx;' placeholder='请填写备注'></textarea>
+      <textarea class='padding-20 radius-10 txt-black h5'  maxlength='-1'  value='{{remark}}'  name='remark' auto-height='{{true}}' style='border:1rpx solid #e5e5e5;width:93%;min-height:200rpx;' placeholder='请填写备注'></textarea>
     </view>
   </view>
 

@@ -3,7 +3,7 @@
 
   <view class='Square bg-dominant radius-20 flex-row flex-center' bindtap='bindtocreat'>
     <view class='flex-1 text-center'><image class=' icon-50 ' src='{{uploadpath}}resource/{{res.xinjianxiangmu}} '></image></view>
-    <view class='txt-white h4 txt-bold flex-1'>新建项目</view>
+    <view class='txt-white h4 txt-bold flex-1'>收方项目</view>
   </view>
 
   <view class='Square bg-dominant margin-top-80 radius-20 flex-row flex-center ' bindtap='bindtomine'>

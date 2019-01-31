@@ -55,7 +55,7 @@
 
   <view class='padding-20' style='border-bottom:6rpx solid #e5e5e5'>
     <view class='flex-row flex-center'>
-      <view class='txt-black h4  flex-1'>提示公式：{{rptfunc.function}}</view>
+      <view class='txt-black h4  flex-1'>提示公式：{{rptway.function}}</view>
       <view >
         <image class='icon-20' src='{{uploadpath}}resource/{{res.addfunc}}' bindtap='addfunc'></image>
       </view>
@@ -72,7 +72,7 @@
 
       <view style='width:40rpx;' class='text-center'>=</view>
       <view class='flex-row column'>
-        <input style='border:1rpx solid #e5e5e5' placeholder='请输入数据'  name='funcright_{{idx}}'  value='{{item.right}}' class='radius-10 h5 text-center margin-top-20'></input>
+        <input style='border:1rpx solid #e5e5e5' placeholder='自动生成结果'  name='funcright_{{idx}}'  value='{{item.right}}' class='radius-10 h5 text-center margin-top-20'></input>
       </view>
 
     </view>
@@ -90,10 +90,14 @@
   <view class='padding-20' style='border-bottom:6rpx solid #e5e5e5'>
     <view class='txt-black h4 '>备注</view>
     <view class='margin-top-20'>
-      <textarea class='padding-20 radius-10 txt-black' fixed="{{true}}" maxlength='-1'  value='{{remarks}}' name='remarks' auto-height='{{true}}' style='border:1rpx solid #e5e5e5;width:93%;min-height:200rpx;' placeholder='请填写图片备注'></textarea>
+      <textarea class='padding-20 radius-10 txt-black'  maxlength='-1'  value='{{remarks}}' name='remarks' auto-height='{{true}}' style='border:1rpx solid #e5e5e5;width:93%;min-height:200rpx;' placeholder='请填写图片备注'></textarea>
     </view>
   </view>
 
+  <view>
+  
   <button class='bg-dominant txt-white text-center margin-20 btn' form-type='submit' style=''>点击保存</button>
+  </view>
+
 
 </form>

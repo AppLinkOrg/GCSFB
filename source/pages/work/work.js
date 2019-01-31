@@ -20,7 +20,13 @@ class Content extends AppBase {
       this.Base.setMyData({englist})
     })
   }
-  
+
+  setPageTitle(instinfo) {
+    wx.setNavigationBarTitle({
+      title: "收方",
+    })
+  }
+
   tocreatetask(e){
    wx.navigateTo({
      url: '/pages/position/position?eng_id='+e.currentTarget.id,

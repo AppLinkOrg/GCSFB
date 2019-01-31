@@ -21,6 +21,12 @@ class Content extends AppBase {
     })
   }
 
+  setPageTitle(instinfo) {
+    wx.setNavigationBarTitle({
+      title: "部位列表",
+    })
+  }
+  
   totypelist(e) {
     wx.navigateTo({
       url: '/pages/typelist/typelist?position_id='+e.currentTarget.id,

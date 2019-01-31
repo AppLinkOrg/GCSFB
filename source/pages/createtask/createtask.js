@@ -32,6 +32,11 @@ class Content extends AppBase {
       today: this.Base.util.FormatDate(new Date())
     })
   }
+  setPageTitle(instinfo) {
+    wx.setNavigationBarTitle({
+      title: "收方",
+    })
+  }
   onMyShow() {
     var that = this;
     var api = new EngineeringApi();

@@ -24,6 +24,12 @@ class Content extends AppBase {
     })
   }
 
+
+  setPageTitle(instinfo) {
+    wx.setNavigationBarTitle({
+      title: "类型列表",
+    })
+  }
   tocreatetask(e) {
     var workdata_id=e.currentTarget.dataset.id;
     // console.log(workdata_id);

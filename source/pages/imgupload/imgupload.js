@@ -30,10 +30,15 @@ class Content extends AppBase {
         way: ""
       },
       photos:[],
-      funclist:[{},{}]
+      funclist:[{}]
     });
   }
 
+  setPageTitle(instinfo) {
+    wx.setNavigationBarTitle({
+      title: "收方数据",
+    })
+  }
 
   onMyShow() {
     var that = this;
@@ -46,7 +51,7 @@ class Content extends AppBase {
       });
     });
     api.sftypelist({
-      id: this.Base.options.part_id
+      part_id: this.Base.options.part_id
     }, (rpttypelist) => {
       this.Base.setMyData({
         rpttypelist
