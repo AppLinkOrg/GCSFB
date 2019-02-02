@@ -3,7 +3,7 @@
 <view class='flex-row flex-column'>
   <image class='LOGO margin-top' src='{{uploadpath}}resource/{{res.logo}}'></image>
 
-  <view class='font txt-bold margin-top'>百信兴鹏收方宝</view>
+  <view class='font txt-bold margin-top'>收方宝</view>
 
   <view class='flex-row column margin-top-100'>
     <view class='txt-black margin-left-10'>欢迎.请登录</view>
