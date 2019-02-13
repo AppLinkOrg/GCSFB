@@ -29,9 +29,7 @@
 
   </view>
 
-
   <button class='bg-dominant txt-white text-center margin-20 login_btn margin-top-100' form-type='submit' style=''>登  录</button>
-
 
 </view>
 </form>

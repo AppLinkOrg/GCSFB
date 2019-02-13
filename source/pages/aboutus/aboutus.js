@@ -16,7 +16,7 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var aboutusapi = new AboutusApi();
-    aboutusapi.aboutuslist({orderby:'r_main.seq '}, (list) => {
+    aboutusapi.aboutuslist({ orderby: 'r_main.seq ', status:'A'}, (list) => {
       this.Base.setMyData({ list });
       });
   }

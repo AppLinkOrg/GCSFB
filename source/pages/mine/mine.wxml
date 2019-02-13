@@ -1,8 +1,9 @@
 <!--pages/mine/mine.wxml-->
 <view class='bg-dominant padding-bottom-40'>
-  <view class=' flex-row flex-column  margin-top ' style='height:170rpx;width:100%'>
+  <view class=' flex-row flex-column margin-top ' style='width:100%'>
     <image class='icon-60 radius-50  ' style='border:4rpx solid #CECFCE' src='{{UserInfo.avatarUrl}}'></image>
-    <view class='txt-white margin-left-5'>{{UserInfo.nickName}}</view>
+    <view class='txt-white margin-left-5 margin-top-5'>{{memberinfo.name}}</view>
+    <view class='txt-white margin-left-5 margin-top-5'>{{memberinfo.mobile}}</view>
   </view>
 </view>
 

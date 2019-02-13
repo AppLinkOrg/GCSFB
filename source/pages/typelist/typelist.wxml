@@ -1,10 +1,11 @@
 <!--pages/typelist/typelist.wxml-->
 <view  class='{{idx>0?"border-top":""}} '  wx:for='{{partlist}}' wx:key='k' wx:for-index='idx'>
   <view class='flex-row flex-center padding '  >
-
+  
     <view class='flex-1 txt-black txt-bold'>{{item.name}}</view>
     <image  class='icon-25' src='{{uploadpath}}resource/{{res.shangchuanzhaopian}}' wx:if="{{isedit=='1'}}" id="{{item.id}}"  bindtap='tocreatetask'></image>
   </view>
+  
   <view wx:for="{{item.workdatalist}}" wx:for-index="idx" wx:for-item="wk"  id="{{item.id}}" data-id="{{wk.id}}" class='padding bg-gray' bindtap='tocreatetask' >
     {{wk.no}}
   </view>

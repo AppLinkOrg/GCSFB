@@ -1,12 +1,19 @@
 <!--pages/workdetails/workdetails.wxml-->
-<view class='margin-20 bg-gray padding-20 txt-black radius-10 h4'>工程名称:{{eng_name}}</view>
+<view wx:if='{{workdata.length>0}}' class='margin-20 bg-gray padding-20 txt-black radius-10 h4'>工程名称:{{eng_name}}</view>
+
+<block wx:if='{{workdata.length==0}}' wx:key="k">
+  <view>
+   暂未添加数据
+  </view>
+</block>
+
 
 <block wx:for="{{workdata}}" wx:key="k">
-<view class='flex-row column margin-20 radius-10 padding-20 bg-gray' >
-  <view class='txt-black'>基本信息:</view>
+  <view class='flex-row column margin-20 radius-10 padding-20 bg-gray'>
+    <view class='txt-black'>基本信息:</view>
 
     <view class='flex-row flex-center  margin-top-20'>
-      <view class='h5'>部   位：</view>
+      <view class='h5'>部 位：</view>
       <view class='h5 txt-black'>{{item.positionname}}</view>
     </view>
 
@@ -24,18 +31,18 @@
       <view class='h5'>上报日期：</view>
       <view class='h5 txt-black'>{{item.updated_date_f}}</view>
     </view>
-    
+
     <view class='flex-row column margin-top-20'>
       <view class='h5'>工程描述：</view>
       <view class='txt-black h5 margin-top-10'>{{item.remark}}</view>
     </view>
 
-</view>
+  </view>
 
-<view class='flex-row column margin-20 radius-10 padding-20 bg-gray' wx:for="{{item.workinfo}}" wx:key="k2">
+  <view class='flex-row column margin-20 radius-10 padding-20 bg-gray' wx:for="{{item.workinfo}}" wx:key="k2">
 
 
-  <view class=' txt-black'>图片信息:</view>
+    <view class=' txt-black'>图片信息:</view>
 
     <view class='flex-row flex-center margin-top-20'>
       <view class='h5 '>收方类型：</view>
@@ -60,10 +67,12 @@
     <view class='flex-row column margin-top-20'>
       <view class='h5'>照片：</view>
       <view class='flex-row flex-center flex-wrap margin-top-20'>
-      <view wx:for="{{item.photos}}" ><image class='img radius-10' src='{{uploadpath}}eng/{{item.img}}'></image></view>
+        <view wx:for="{{item.photos}}">
+          <image class='img radius-10' src='{{uploadpath}}eng/{{item.img}}'></image>
+        </view>
       </view>
 
-  </view>
+    </view>
 
-</view>
+  </view>
 </block>

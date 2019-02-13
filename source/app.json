@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/mine/mine",
+    "pages/auth/auth",
     "pages/workdetails/workdetails",
     "pages/typelist/typelist",
     "pages/createtask/createtask",
@@ -8,10 +10,8 @@
     "pages/login/login",
     "pages/position/position",
     "pages/work/work",
-    "pages/mine/mine",
     "pages/mywork/mywork",
     "pages/calculation/calculation",
-    "pages/auth/auth",
     "pages/aboutus/aboutus"
   ],
    "permission": {
