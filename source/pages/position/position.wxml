@@ -1,10 +1,14 @@
 <!--pages/position/position.wxml-->
-<view class='padding-10 flex-row  flex-center flex-wrap'>
 
-<view class='block  margin-5 bg-white flex-row flex-center ' bindtap='totypelist' id="{{item.id}}" style='' wx:for='{{psnlist}}' wx:key='k' wx:for-index='idx'>
+<form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+  <view class='padding-10 flex-row  flex-center flex-wrap'>
 
-<view class='flex-1 text-center'>{{item.name}}</view>
+  <view class='block  margin-5 bk {{item.isfav>0?"qqq":"bg-white"}} flex-row flex-center ' bindtap='totypelist' id="{{item.id}}" style='' wx:for='{{psnlist}}' wx:key='k' wx:for-index='idx'>
+
+    <view class='flex-1 text-center'>{{item.name}}</view>
+
+  </view>
 
 </view>
-
-</view>
+<button class='text-center bg-primary bg-orange dibu' form-type='submit' hover-class='bg-primary-1'  style='border-radius:10rpx;'>提交</button>
+</form>

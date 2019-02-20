@@ -29,7 +29,7 @@ class Content extends AppBase {
 
   tocreatetask(e){
    wx.navigateTo({
-     url: '/pages/position/position?eng_id='+e.currentTarget.id,
+     url: '/pages/position/position?eng_id=' + e.currentTarget.id + '&issub=' + e.currentTarget.dataset.id,
     })
   }
 

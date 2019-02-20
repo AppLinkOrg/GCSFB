@@ -5,7 +5,7 @@
 </view>
 
 
-<view wx:for='{{englist}}' wx:key='k' wx:for-index='idx' class='flex-row flex-center padding-20 list {{idx%2==0?"bg-white":""}}' bindtap='tocreatetask' id="{{item.id}}">
+<view wx:for='{{englist}}' wx:if="{{item.member_id==memberinfo.id}}"  wx:key='k' wx:for-index='idx' class='flex-row flex-center padding-20 list {{idx%2==0?"bg-white":""}}' bindtap='tocreatetask' id="{{item.id}}" data-id="{{item.submit_value}}">
   <view class=' flex-1  text-center txt-black h5'>{{item.engtype_typename}}</view>
   <view class=' flex-1 text-left txt-black h5'>{{item.eng_name}}</view>
 </view>

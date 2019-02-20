@@ -9,6 +9,9 @@ import {
   InstApi
 } from "../../apis/inst.api.js";
 import {
+  ApiUtil
+} from "../../apis/apiutil.js";
+import {
   EngineeringApi
 } from "../../apis/engineering.api.js";
 
@@ -77,11 +80,20 @@ class Content extends AppBase {
             rptwaylist
           });
         });
+        var zonshu=0
+        var funclist = workinfo.funcs;
+         for(var i=0;i<funclist.length;i++)
+         {
+
+  
+           zonshu += parseInt(funclist[i].right);
+         }
 
         this.Base.setMyData({
           result: workinfo.result,
           remarks: workinfo.remarks,
           photos:ps,
+          zonshu:zonshu,
           funclist:workinfo.funcs,
           rpttype:workinfo.rpttype,
           rptway:workinfo.rptway
@@ -133,6 +145,16 @@ class Content extends AppBase {
     funclist.push({});
     this.Base.setMyData({funclist});
   }
+  deletfunc(e){
+    var funclist = this.Base.getMyData().funclist;
+    funclist.splice(e.currentTarget.id,1);
+    var zonshu=0;
+    for (var i = 0; i < funclist.length; i++) {
+      zonshu += parseInt(funclist[i].right);
+
+    }
+    this.Base.setMyData({ funclist,zonshu:zonshu });
+  }
   confirm(e){
     console.log(e);
     var data=e.detail.value;
@@ -180,6 +202,7 @@ class Content extends AppBase {
     data.type=rpttype.id;
     data.way=rptway.id;
     data.part_id=this.Base.options.part_id;
+    data.workdata_id = this.Base.options.workdata_id;
     data.photos=photos.join(",");
     data.funcs=JSON.stringify(funcs);
 
@@ -192,6 +215,29 @@ class Content extends AppBase {
       this.dataReturn({work_id:ret.return});
     });
   }
+  cal(e){
+    
+    var aaa = ApiUtil.parse(e.detail.value);
+   console.log(aaa);
+ 
+  }
+  jisuan(e){
+    var funclist = this.Base.getMyData().funclist;
+    
+    var seq = parseInt(e.currentTarget.id);
+    var left =e.detail.value;
+    funclist[seq].left=left;
+    console.log(left);
+    var right = ApiUtil.parse(left);
+    funclist[seq].right = right;
+    var zonshu=0;
+    for (var i = 0; i < funclist.length;i++)
+    {
+      zonshu += parseInt(funclist[i].right) ;
+
+    }
+    this.Base.setMyData({ funclist,zonshu:zonshu});
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -201,5 +247,8 @@ body.selectRPTType = content.selectRPTType;
 body.selectRPTWay = content.selectRPTWay; 
 body.upload = content.upload;
 body.addfunc = content.addfunc;
+body.deletfunc = content.deletfunc;
 body.confirm = content.confirm;
+body.jisuan = content.jisuan;
+body.getInputVal = content.getInputVal;
 Page(body)

@@ -26,6 +26,8 @@ class Content extends AppBase {
     var that = this;
     var api = new EngineeringApi();
     api.getworkdatafull({id:this.Base.options.id},(info)=>{
+      console.log("牛逼");
+      
       this.Base.setMyData(info);
     });
     

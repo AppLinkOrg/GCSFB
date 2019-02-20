@@ -51,7 +51,7 @@
     </view>
 
     <view class='flex-row flex-center margin-top-20'>
-      <view>数据：</view>
+      <view>工程量：</view>
       <view>{{workinfo.result}}</view>
     </view>
 
@@ -63,7 +63,7 @@
     <view class='flex-row column margin-top-20'>
       <view>照片：</view>
       <view class='flex-row flex-center flex-wrap'>
-        <view wx:for="{{workinfo.photos}}">
+        <view wx:for="{{workinfo.photos}}" wx:key='k'>
           <image class='img radius-10' src='{{uploadpath}}eng/{{item.img}}'></image>
         </view>
       </view>

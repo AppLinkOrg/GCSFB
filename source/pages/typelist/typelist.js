@@ -14,12 +14,12 @@ class Content extends AppBase {
     super.onLoad(options);
 
     var isedit = wx.getStorageSync("isedit");
-    this.Base.setMyData({ isedit});
+    this.Base.setMyData({ isedit, issub:this.Base.options.issub});
   }
   onMyShow() {
     var that = this;
     var engapi = new EngineeringApi();
-    engapi.partlist({ position_id: this.Base.options.position_id, "orderby": "r_main.seq" }, (partlist) => {
+    engapi.partlist1({ position_id: this.Base.options.position_id,  }, (partlist) => {
       this.Base.setMyData({ partlist })
     })
   }
@@ -38,14 +38,17 @@ class Content extends AppBase {
 
     var isedit=wx.getStorageSync("isedit");
     if(isedit=="1"){
-
+    if(this.Base.options.issub=='Y')
+    {
+      return;
+    }
       wx.navigateTo({
-        url: '/pages/createtask/createtask?part_id=' + e.currentTarget.id + (workdata_id == undefined ? "" : "&workdata_id=" + workdata_id),
+        url: '/pages/createtask/createtask?part_id=' + e.currentTarget.id + (workdata_id == undefined ? "" : "&workdata_id=" + workdata_id) + '&eng_id=' + this.Base.options.eng_id + '&position_id=' + this.Base.options.position_id,
       })
     }else{
       console.log('/pages/workdetails/workdetails?part_id=' + e.currentTarget.id + (workdata_id == undefined ? "" : "&workdata_id=" + workdata_id));
       wx.navigateTo({
-        url: '/pages/workdetails/workdetails?part_id=' + e.currentTarget.id + (workdata_id == undefined ? "" : "&workdata_id=" + workdata_id),
+        url: '/pages/workdetails/workdetails?part_id=' + e.currentTarget.id + (workdata_id == undefined ? "" : "&workdata_id=" + workdata_id) + '&eng_id=' + this.Base.options.eng_id + '&position_id=' + this.Base.options.position_id,
       })
     }
 

@@ -48,23 +48,29 @@ class Content extends AppBase {
       });
     });
     this.loadworklist();
-    if (this.Base.options.workdata_id){
+    if (this.Base.options.workdata_id!=undefined){
+    
       api.workdatainfo({
         id: this.Base.options.workdata_id
       }, (workdatainfo) => {
+
         this.Base.setMyData({
           no: workdatainfo.no,
           remark: workdatainfo.remark,
           worklist: workdatainfo.worklist
         });
+
+
         this.loadworklist();
       });
     }
   }
   loadworklist() {
+
     var api = new EngineeringApi();
     var worklist = this.Base.getMyData().worklist;
     if (worklist.length > 0) {
+      console.log(666666);
       console.log(worklist.join(","));
       api.workinfolist({
         idlist: worklist.join(",")
@@ -101,7 +107,15 @@ class Content extends AppBase {
       this.Base.info("请添加收方数据");
       return;
     }
-    var worklist = this.Base.getMyData().worklist ;
+    var worklist = this.Base.getMyData().worklist;
+    var workdata_id = this.Base.getMyData().workdata_id;
+    console.log(worklist);
+     if(workdata_id!=undefined)
+     {
+    data.primary_id = workdata_id;
+     }
+    data.engineering_id = this.Base.options.eng_id;
+    data.position_id = this.Base.options.position_id;
     data.part_id=this.Base.options.part_id;
     data.idlist= worklist.join(",");
     // if (data.scdate == "") {
@@ -134,7 +148,7 @@ class Content extends AppBase {
 
               })
             }else{
-              that.info(res.result);
+              that.Base.info(res.result);
             }
           })
         }
@@ -149,17 +163,18 @@ class Content extends AppBase {
     var work_id = e.currentTarget.id;
     console.log(work_id);
     wx.navigateTo({
-      url: '/pages/imgupload/imgupload?part_id=' + this.Base.options.part_id + (work_id == "" ? "" : "&work_id=" + work_id),
+      url: '/pages/imgupload/imgupload?part_id=' + this.Base.options.part_id + (work_id == "" ? "" : "&work_id=" + work_id) + "&workdata_id=" + this.Base.options.workdata_id,
       fail:function(e){
         console.log(e);
       }
     })
   }
   dataReturnCallback(callbackid, data) {
+
     console.log(data);
     var worklist=this.Base.getMyData().worklist;
     worklist.push(data.work_id);
-   
+    this.Base.setMyData({ worklist: worklist});
     // var api = new EngineeringApi();
     // api.workinfo({
     //   id: data.work_id
@@ -168,6 +183,7 @@ class Content extends AppBase {
     //     workinfo
     //   });
     // }); 
+    
   }
 }
 

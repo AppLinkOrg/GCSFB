@@ -55,7 +55,7 @@
 
   <view class='padding-20' style='border-bottom:6rpx solid #e5e5e5'>
     <view class='flex-row flex-center'>
-      <view class='txt-black h4  flex-1'>提示公式：{{rptway.function}}</view>
+      <view class='txt-black h5  flex-1'>提示公式：{{rptway.function}}</view>
       <view >
         <image class='icon-20' src='{{uploadpath}}resource/{{res.addfunc}}' bindtap='addfunc'></image>
       </view>
@@ -63,25 +63,26 @@
 
 
 
-    <view class='flex-row flex-center' wx:for="{{funclist}}" wx:for-index="idx">
+    <view class='flex-row flex-center' wx:for="{{funclist}}" wx:key='k' wx:for-index="idx">
 
-      <view>{{idx+1}}、</view>
+      <view>{{idx+1}}.</view>
       <view class='flex-row column flex-1'>
-        <input style='border:1rpx solid #e5e5e5' placeholder='请输入数据' name='funcleft_{{idx}}' value='{{item.left}}' class='radius-10 h5 text-center margin-top-20'></input>
+        <input style='border:1rpx solid #e5e5e5' bindinput='jisuan'  placeholder='请输入数据' id="{{idx}}" name='funcleft_{{idx}}' value='{{item.left}}'  class='radius-10 h5 text-center margin-top-20'></input>
       </view>
 
-      <view style='width:40rpx;' class='text-center'>=</view>
-      <view class='flex-row column'>
-        <input style='border:1rpx solid #e5e5e5' placeholder='自动生成结果'  name='funcright_{{idx}}'  value='{{item.right}}' class='radius-10 h5 text-center margin-top-20'></input>
+     
+      <view class='flex-row column margin-left-20'>
+        <input style='border:1rpx solid #e5e5e5'  disabled='disabled'   placeholder='自动生成结果'  name='funcright_{{idx}}'  value='{{item.right}}' class='radius-10 h5 text-center margin-top-20'></input>
+           
       </view>
-
+   <view bindtap='deletfunc' style='margin-top:10rpx' class="flex-row  margin-left-10 column" id="{{idx}}"><image class='icon-20' src='{{uploadpath}}resource/{{res.delfunc}}' ></image></view>
     </view>
 
 
 
     <view class='flex-row flex-center margin-top'>
-      <view class='txt-black'>结果：</view>
-      <input style='border:1rpx solid #e5e5e5' placeholder='自动生成结果' name="result" value='{{result}}' class='radius-10 h5 margin-left-20 padding-left-20'></input>
+      <view class='txt-black'>工程量:</view>
+      <input style='border:1rpx solid #e5e5e5' disabled='disabled'  placeholder='自动生成结果' name="result" value='{{zonshu}}' class='radius-10 h5 margin-left-20 padding-left-20'></input>
     </view>
 
   </view>

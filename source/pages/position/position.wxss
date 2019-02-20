@@ -10,3 +10,15 @@ Page {
   width: 170rpx;
   border-radius: 20rpx;
 }
+.dibu{
+/* border: 1rpx solid black; */
+ 
+margin-top:600rpx;
+}
+.qqq{
+  background-color: #fbc02d;
+}
+.bk{
+
+  border:1px solid #fbc02d;
+}
